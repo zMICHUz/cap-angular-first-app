@@ -1,0 +1,18 @@
+<div class="detailCharacter flex-container">
+  <div class="flex-container">
+    <label>Name: </label>
+    <input [(ngModel)]="character.name"/>
+  </div>
+  <div class="flex-container">
+    <label>Actor/Actress: </label>
+    <input [(ngModel)]="character.actor"/>
+  </div>
+  <div class="flex-container">
+    <label>Age: </label>
+    <input type="number" min="0" [(ngModel)]="character.age"/>
+  </div>
+  <div class="flex-container">
+    <label>Died: </label>
+    <input type="checkbox" [(ngModel)]="character.died">
+  </div>
+</div>

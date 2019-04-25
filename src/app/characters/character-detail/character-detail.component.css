@@ -1,0 +1,10 @@
+.detailCharacter {
+  margin: 0.5rem;
+  background-color:cornsilk;
+  padding: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
