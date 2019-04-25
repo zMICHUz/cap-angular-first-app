@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <th> Name </th>
+    <th> Age </th>
+    <th> Actor/Actress </th>
+    <th> Died </th>
+  </thead>
+  <tbody>
+    <tr 
+      *ngFor="let character of characters"
+      [class.selected]="character === selectedCharacter"
+      (click)="selectCharacter(character)">
+        <td> {{ character.name }} </td>
+        <td> {{ character.age }} </td>
+        <td> {{ character.actor }} </td>
+        <td> 
+          <input type="checkbox" [(ngModel)]="character.died" disabled/>
+        </td>
+    </tr>
+  </tbody>
+</table>
