@@ -1,3 +1,7 @@
 <cap-title title="{{title}}"></cap-title>
 
-<cap-character-list [characters]="characters"></cap-character-list>
+<cap-character-list
+  [characters]="characters"
+  (selected)="selectCharacter($event)"
+  [selectedCharacter]="selectedCharacter"
+></cap-character-list>

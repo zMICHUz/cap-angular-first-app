@@ -11,8 +11,17 @@ import mockCharacters from './shared/mock-characters';
 export class AppComponent  {
   title = 'My Fisrt Angular App';
   characters: Array<Character>;
+  selectedCharacter: Character;
   
   ngOnInit() {
     this.characters = mockCharacters;
   }
+
+  selectCharacter($character: Character) {
+    if(this.selectedCharacter === $character){
+      this.selectedCharacter = undefined;
+    } else {
+      this.selectedCharacter = $character;
+    }
+  } 
 }
