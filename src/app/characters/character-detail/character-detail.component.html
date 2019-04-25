@@ -1,4 +1,4 @@
-<div class="detailCharacter flex-container">
+<div *ngIf="character" class="detailCharacter flex-container">
   <div class="flex-container">
     <label>Name: </label>
     <input [(ngModel)]="character.name"/>
@@ -16,3 +16,4 @@
     <input type="checkbox" [(ngModel)]="character.died">
   </div>
 </div>
+
