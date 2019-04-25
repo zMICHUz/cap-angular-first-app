@@ -6,6 +6,7 @@ import { CharacterListComponent } from './character-list/character-list.componen
   imports: [
     CommonModule
   ],
-  declarations: [CharacterListComponent]
+  declarations: [CharacterListComponent],
+  exports: [CharacterListComponent]
 })
 export class CharactersModule { }
