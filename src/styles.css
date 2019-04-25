@@ -3,3 +3,19 @@ h1 {
   font-family: Lato;
   color: darkviolet;
 }
+
+body {
+  font-family: Lato;
+}
+
+input[type="checkbox"]{
+    -webkit-appearance: initial;
+    appearance: initial;
+    background: green;
+    width: 1rem;
+    height: 1rem;
+}
+
+input[type="checkbox"]:checked {
+    background: red;
+}
