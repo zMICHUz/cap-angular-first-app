@@ -11,7 +11,7 @@
       [class.selected]="character === selectedCharacter"
       (click)="selectCharacter(character)">
         <td> {{ character.name }} </td>
-        <td> {{ character.age }} </td>
+        <td> {{ character.age | multiplication }} </td>
         <td> {{ character.actor }} </td>
         <td> 
           <input type="checkbox" [(ngModel)]="character.died" disabled/>
