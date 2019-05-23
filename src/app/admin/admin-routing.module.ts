@@ -1,5 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AdminGuard } from './admin.guard';
  
 import { LoginComponent }   from './login/login.component';
 import { AdminPanelComponent }   from './admin-panel/admin-panel.component';
@@ -12,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full'},
       { path: 'login', component: LoginComponent },
-      { path: 'panel', component: AdminPanelComponent }
+      { path: 'panel', component: AdminPanelComponent, canActivate: [AdminGuard] }
     ]
   }
 ];
