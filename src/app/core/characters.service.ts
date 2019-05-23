@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { LoggerService } from './logger.service';
 
 import Character from '../shared/character.model';
-import mockCharacters from '../shared/mock-characters';
+
+const BASE_URL = 'https://capgemini-angular.firebaseio.com';
+const CHARACTERS_ENDPOINT = '/characters';
+const URL_SUFIX = '.json';
 
 @Injectable()
 export class CharactersService {
 
-  constructor(private loggerService: LoggerService) {}
+  constructor(private loggerService: LoggerService, private http: HttpClient) {}
 
   getCharacters(): Observable<Character[]> {
-    const characters = mockCharacters;
-
     this.loggerService.log('CHARACTERS SERVICE GETTING CHARACTERS');
 
-    return of(characters);
+    return this.http.get<Character[]>(`${BASE_URL}${CHARACTERS_ENDPOINT}${URL_SUFIX}`);
   }
 
   getCharacter(id: number): Observable<Character> {
-    const character = mockCharacters[id];
-
     this.loggerService.log(`CHARACTERS SERVICE GETTING CHARACTER ${id}`);
 
-    return of(character)
-  }
+    return this.http.get<Character>(`${BASE_URL}${CHARACTERS_ENDPOINT}/${id}${URL_SUFIX}`);  }
 
 }
