@@ -3,15 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
  
 import { LoginComponent }   from './login/login.component';
 import { AdminPanelComponent }   from './admin-panel/admin-panel.component';
+import { AdminComponent }   from './admin/admin.component';
  
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'panel', component: AdminPanelComponent }
+  {
+    path: '',
+    component: AdminComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
+      { path: 'login', component: LoginComponent },
+      { path: 'panel', component: AdminPanelComponent }
+    ]
+  }
 ];
  
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, {enableTracing: false}) ],
+  imports: [ RouterModule.forChild(routes) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AdminRoutingModule {}
