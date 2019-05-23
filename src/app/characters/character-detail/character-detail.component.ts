@@ -13,6 +13,7 @@ import Character from '../../shared/character.model';
 })
 export class CharacterDetailComponent implements OnInit {
   character: Character;
+  id: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +22,9 @@ export class CharacterDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
 
-    this.charactersService.getCharacter(id)
+    this.charactersService.getCharacter(this.id)
       .subscribe(character => this.character = character);
   }
 
