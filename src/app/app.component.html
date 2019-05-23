@@ -1,9 +1,3 @@
 <cap-title title="{{title}}"></cap-title>
 
-<cap-character-list
-  [characters]="characters"
-  (selected)="selectCharacter($event)"
-  [selectedCharacter]="selectedCharacter"
-></cap-character-list>
-
-<cap-character-detail [character]="selectedCharacter"></cap-character-detail>
+<router-outlet></router-outlet>
