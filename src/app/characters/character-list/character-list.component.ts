@@ -32,6 +32,5 @@ export class CharacterListComponent {
 
   selectCharacter(characterId: number) {
     this.router.navigate([ '/characters', characterId ])
-    //@TODO: Go to /characters/:id
   } 
 }
