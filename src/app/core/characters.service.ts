@@ -20,4 +20,12 @@ export class CharactersService {
     return of(characters);
   }
 
+  getCharacter(id: number): Observable<Character> {
+    const character = mockCharacters[id];
+
+    this.loggerService.log(`CHARACTERS SERVICE GETTING CHARACTER ${id}`);
+
+    return of(character)
+  }
+
 }

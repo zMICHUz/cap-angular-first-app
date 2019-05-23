@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CharactersService } from '../../core/characters.service';
 import { LoggerService } from '../../core/logger.service';
@@ -11,14 +12,13 @@ import Character from '../../shared/character.model';
   styleUrls: ['./character-list.component.css']
 })
 export class CharacterListComponent {
-  @Input() characters: Array<Character>;
-  @Input() selectedCharacter: Character;
+  characters: Array<Character>;
+  selectedCharacter: Character;
   
-  @Output() selected: EventEmitter<Character> = new EventEmitter<Character>();
-
   constructor(
     private charactersService: CharactersService,
-    private loggerService: LoggerService) {}
+    private loggerService: LoggerService,
+    private router: Router,) {}
   
   ngOnInit() {
     this.loggerService.log('APP INIT');
@@ -30,7 +30,8 @@ export class CharacterListComponent {
     });
   }
 
-  selectCharacter(character: Character) {
-    this.selected.emit(character);
+  selectCharacter(characterId: number) {
+    this.router.navigate([ '/characters', characterId ])
+    //@TODO: Go to /characters/:id
   } 
 }

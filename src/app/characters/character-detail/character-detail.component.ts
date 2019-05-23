@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { CharactersService } from '../../core/characters.service';
 
 import Character from '../../shared/character.model';
 
@@ -7,6 +11,23 @@ import Character from '../../shared/character.model';
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.css']
 })
-export class CharacterDetailComponent {
-  @Input() character: Character;
+export class CharacterDetailComponent implements OnInit {
+  character: Character;
+
+  constructor(
+    private route: ActivatedRoute,
+    private charactersService: CharactersService,
+    private location: Location
+  ) {}
+
+  ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.charactersService.getCharacter(id)
+      .subscribe(character => this.character = character);
+  }
+
+  goBack() {
+    this.location.back()
+  }
 } 

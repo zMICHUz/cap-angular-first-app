@@ -1,3 +1,6 @@
+<div *ngIf="!character" class="detailCharacter flex-container">
+  No existe o no puede ser recuperado
+</div> 
 <div *ngIf="character" class="detailCharacter flex-container">
   <div class="flex-container">
     <label>Name: </label>
@@ -15,5 +18,8 @@
     <label>Died: </label>
     <input type="checkbox" [(ngModel)]="character.died">
   </div>
+</div>
+<div>
+  <button (click)="goBack()">Atrás</button>
 </div>
 
