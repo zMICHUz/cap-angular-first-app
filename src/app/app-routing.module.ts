@@ -7,7 +7,8 @@ import { CharacterDetailComponent }   from './characters/character-detail/charac
 const routes: Routes = [
   { path: '', redirectTo: '/characters', pathMatch: 'full' },
   { path: 'characters', component: CharacterListComponent },
-  { path: 'characters/:id', component: CharacterDetailComponent }
+  { path: 'characters/:id', component: CharacterDetailComponent },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
 ];
  
 @NgModule({
