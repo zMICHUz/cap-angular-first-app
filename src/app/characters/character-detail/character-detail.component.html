@@ -39,13 +39,13 @@
       <label>Died: </label>
       <input type="checkbox" formControlName="died" required/>
     </div>
-    <button type="submit" [disabled]="!characterForm.valid">Submit</button>
     <p>
       Form Value: {{ characterForm.value | json }}
     </p>
     <p>
       Form Status: {{ characterForm.status }}
     </p>
+    <button type="submit" [disabled]="!characterForm.valid">Submit</button>
   </form>
 </div>
 <div>

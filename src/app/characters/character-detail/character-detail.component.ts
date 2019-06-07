@@ -45,6 +45,6 @@ export class CharacterDetailComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.characterForm.);
+    console.warn(this.characterForm);
   }
 } 
