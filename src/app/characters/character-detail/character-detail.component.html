@@ -1,9 +1,10 @@
 <div *ngIf="!character" class="detailCharacter flex-container">
-  No existe o no puede ser recuperado
-</div> 
+	No existe o no puede ser recuperado
+</div>
 <div *ngIf="character" class="detailCharacter flex-container">
-  <div class="flex-container">
-    <label>Name: </label>
+	<h2>NgModel</h2>
+	<div class="flex-container">
+		<label>Name: </label>
     <input [(ngModel)]="character.name"/>
   </div>
   <div class="flex-container">
@@ -19,9 +20,36 @@
     <input type="checkbox" [(ngModel)]="character.died">
   </div>
 </div>
+<div *ngIf="character" class="detailCharacter flex-container">
+  <h2>Reactive Form</h2>
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <div class="flex-container">
+      <label>Name: </label>
+      <input formControlName="name" required/>
+    </div>
+    <div class="flex-container">
+      <label>Actor/Actress: </label>
+      <input formControlName="actor" required/>
+    </div>
+    <div class="flex-container">
+      <label>Age: </label>
+      <input type="number" min="0" formControlName="age" required/>
+    </div>
+    <div class="flex-container">
+      <label>Died: </label>
+      <input type="checkbox" formControlName="died" required/>
+    </div>
+    <button type="submit" [disabled]="!characterForm.valid">Submit</button>
+    <p>
+      Form Value: {{ characterForm.value | json }}
+    </p>
+    <p>
+      Form Status: {{ characterForm.status }}
+    </p>
+  </form>
+</div>
 <div>
   <a routerLink="../">Atrás RouterLink</a>
   <br />
   <button (click)="goBack()">Atrás Router</button>
 </div>
-
