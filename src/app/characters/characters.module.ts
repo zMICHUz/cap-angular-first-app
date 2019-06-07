@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 import { SharedModule } from '../shared/shared.module'
 
@@ -13,6 +14,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
     RouterModule,
     CommonModule,
     FormsModule,
+    AngularFirestoreModule,
     SharedModule
   ],
   declarations: [CharacterListComponent, CharacterDetailComponent],

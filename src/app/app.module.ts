@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire'
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -9,6 +10,8 @@ import { CharactersModule } from './characters/characters.module';
 import { LoggerService } from './core/logger.service';
 
 import { AppComponent } from './app.component';
+
+import { fireConf } from '../firebase';
 
 @Injectable()
 class MyErrorHandler implements ErrorHandler {
@@ -23,6 +26,7 @@ class MyErrorHandler implements ErrorHandler {
 @NgModule({
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(fireConf),
     FormsModule,
     SharedModule,
     CharactersModule,
